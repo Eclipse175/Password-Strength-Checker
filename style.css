@@ -1,0 +1,55 @@
+* {
+    font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    margin: 0;
+    padding: 0
+}
+
+body {
+    background-color:#D8BFD8 ;
+}
+
+#password-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #E1BEE7;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+#password-input:focus {
+    outline: none;
+    border-color: #BA68C8;
+    box-shadow: 0 0 5px rgba(186, 104, 200, 0.5);
+}
+
+.password-container {
+    max-width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+#strength-bar {
+    height: 24px;
+    background-color: #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#strength-fill {
+    height: 100%;
+    width:0% ;
+    background-color: #800080    ;
+    transition: width 0.3s ease-in-out;
+}
+
+#strength-text {
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
