@@ -3,6 +3,9 @@ const passwordStrengthBar = document.getElementById("strength-fill");
 const result = document.getElementById("strength-text");
 // The ^ ensures the match starts at the beginning of the string, .{8,} matches any character (except newline) 8 or more times, and $ ensures the match extends to the end of the string.
 const minLengthRegex = /^.{8,}$/;
+const minLengthToCopy = /^.{1,}$/;
+const copyButton = document.getElementById("copy-button");
+const visibilityToggle = document.getElementById("visibility-toggle");
 
 inputPassword.addEventListener("input", function () {
     let width = 0;
@@ -26,7 +29,6 @@ inputPassword.addEventListener("input", function () {
         width += 20;
     }
 
-
     const colorCheck = () => {
         if (width >= 0 && width <= 20) {
             passwordStrengthBar.style.backgroundColor = 'red';
@@ -40,7 +42,25 @@ inputPassword.addEventListener("input", function () {
         }
     }
     colorCheck();
-
     passwordStrengthBar.style.width = width + '%';
 })
 
+
+visibilityToggle.addEventListener("click", function () {
+    if (inputPassword.type === "password") {
+        inputPassword.type = "text";
+        visibilityToggle.textContent = "🙈";
+    } else {
+        inputPassword.type = "password";
+        visibilityToggle.textContent = "👁️";
+    }
+});
+
+copyButton.addEventListener('click', function () {
+    let copied = navigator.clipboard.writeText(inputPassword.value);
+    if (copied && minLengthToCopy.test(inputPassword.value)) {
+        result.innerText = 'Copied!'
+    } else {
+        result.innerText = 'Failed to copy'
+    }
+})
