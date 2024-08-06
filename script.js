@@ -9,8 +9,8 @@ const visibilityToggle = document.getElementById("visibility-toggle");
 
 inputPassword.addEventListener("input", function () {
     let width = 0;
-
-    const password = document.getElementById('password-input').value;
+    
+    let password = document.getElementById('password-input').value;
     if (minLengthRegex.test(password)) {
         width += 15;
         // passwordStrengthBar.style.backgroundColor = 'green';
@@ -18,14 +18,14 @@ inputPassword.addEventListener("input", function () {
         console.log('Password is too short');
     }
 
-    if (/[a-zA-Z]/.test(inputPassword.value)) {
+    if (/[a-zA-Z]/.test(password)) {
         width += 12;
     }
 
-    if (/[0-9]/.test(inputPassword.value)) {
+    if (/[0-9]/.test(password)) {
         width += 12;
     }
-    if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(inputPassword.value)) {
+    if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password)) {
         width += 20;
     }
 
